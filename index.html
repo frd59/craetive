@@ -1050,6 +1050,40 @@ const moForms={
 };
 
 // SUBMITS
+window.subPanelMgmt = async function(id) {
+    // 1. İlgili müşteriyi bul
+    const client = clients.find(c => String(c.id) === String(id));
+    if (!client) {
+        showToast('Müşteri bulunamadı!', 'error');
+        return;
+    }
+
+    // 2. Müşteri (Client) verilerini formdan al ve güncelle
+    client.total = Number(v('pm_total')) || 0;
+    client.paid = Number(v('pm_paid')) || 0;
+    client.stage = v('pm_stage');
+    client.driveFolder = v('pm_drive');
+
+    // 3. İlgili Çekim (Session) kaydını bul ve güncelle
+    let session = sessions.find(s => String(s.cid) === String(id));
+    if (session) {
+        session.date = v('pm_date');
+        session.time = v('pm_time');
+        session.pkg = v('pm_pkg');
+        session.loc = v('pm_loc');
+        session.status = v('pm_status');
+        await persistOne('sessions', session); // Veritabanına kaydet
+    }
+
+    // 4. Müşteriyi veritabanına kaydet
+    await persistOne('clients', client);
+    
+    // 5. Ekranı kapat, mesaj ver ve yenile
+    closeModal();
+    showToast('Panel bilgileri güncellendi ✓', 'success');
+    render(cur);
+}
+  
 window.subAuth = async function(id) {
   let c = clients.find(x => String(x.id) === String(id));
   if (!c) {
