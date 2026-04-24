@@ -327,14 +327,6 @@ tr:last-child td{border-bottom:none}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
       Gelir / Gider
     </button>
-    <button class="nav-item has-sub" onclick="toggleSub(event)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      Dükkanlar
-    </button>
-    <div class="submenu">
-      <button class="nav-item" data-tab="store-corlu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>Çorlu</button>
-      <button class="nav-item" data-tab="store-ergene"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>Ergene</button>
-    </div>
     
     <div style="margin-top:20px; border-top:1px solid rgba(255,255,255,0.1); padding-top:10px;">
         <button class="nav-item" data-tab="trash" style="color:#fecaca">
@@ -370,8 +362,6 @@ tr:last-child td{border-bottom:none}
     <div class="pg" id="pg-contracts"></div>
     <div class="pg" id="pg-quotes"></div>
     <div class="pg" id="pg-finance"></div>
-    <div class="pg" id="pg-store-corlu"></div>
-    <div class="pg" id="pg-store-ergene"></div>
     <div class="pg" id="pg-trash"></div>
   </div>
 </div>
@@ -597,7 +587,6 @@ function render(k) {
     dashboard: rDash, sessions: rSess, clients: rCli, 'client-auth': rCliAuth,
     'panel-mgmt': rPanelMgmt, tasks: rTask, contracts: rCont, finance: rFin,
     quotes: rQuotes,
-    'store-corlu': ()=>rStore('corlu'), 'store-ergene': ()=>rStore('ergene'),
     trash: rTrash
   };
   
