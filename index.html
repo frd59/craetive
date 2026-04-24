@@ -1022,13 +1022,6 @@ const moForms={
           ).join('');
           
           clientSelectHtml = `
-          <div class="fg">
-              <label>Bağlantılı Müşteri (Ara Ödeme/Tahsilat)</label>
-              <select id="f_inc_client" onchange="loadClientSessionsForIncome(this.value)">
-                  <option value="">-- Müşteri Seçin (Bağımsız Gelir ise boş bırakın) --</option>
-                  ${clientOptions}
-              </select>
-          </div>
           <div class="fg" id="f_inc_session_wrap" style="display:none; background:#f8fafc; padding:10px; border-radius:10px; border:1px solid var(--bdr);">
               <label>Kayıtlı İşlem / Çekim</label>
               <select id="f_inc_session" onchange="autoFillIncomeDesc()"></select>
